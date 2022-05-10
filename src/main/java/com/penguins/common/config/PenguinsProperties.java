@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Data
 @Configuration
-@ConfigurationProperties(prefix = "bytecode")
-public class ByteCodeProperties {
+@ConfigurationProperties(prefix = "penguins")
+public class PenguinsProperties {
 
     /**
      * 字节跳动小程序配置
@@ -35,7 +35,7 @@ public class ByteCodeProperties {
      */
     @Data
     @Configuration
-    @ConfigurationProperties("bytecode.mini")
+    @ConfigurationProperties("penguins.bytecode.mini")
     public static class MiniProgram {
         /**
          * host

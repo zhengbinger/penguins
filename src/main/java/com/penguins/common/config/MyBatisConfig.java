@@ -15,13 +15,6 @@ import org.springframework.context.annotation.Bean;
  **/
 public class MyBatisConfig {
 
-
-//    @Bean
-//    public HandlerCommonInterceptor interceptor() {
-//        return new HandlerCommonInterceptor();
-//    }
-
-
     /**
      * 添加分页插件
      *
@@ -33,5 +26,10 @@ public class MyBatisConfig {
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
         return interceptor;
     }
+//    @Bean
+//    public HandlerCommonInterceptor interceptor() {
+//        return new HandlerCommonInterceptor();
+//    }
+
 
 }

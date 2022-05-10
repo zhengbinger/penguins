@@ -9,7 +9,7 @@ import com.aliyun.oss.model.CannedAccessControlList;
 import com.aliyun.oss.model.ObjectMetadata;
 import com.aliyun.oss.model.PutObjectRequest;
 import com.aliyun.oss.model.StorageClass;
-import com.penguins.common.config.ByteCodeProperties;
+import com.penguins.common.config.PenguinsProperties;
 import com.penguins.entity.enums.BusinessType;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
@@ -30,11 +30,10 @@ import java.io.InputStream;
  **/
 @Slf4j
 @Component
-public class OssHandler {
+public class AliyunOssHandler {
 
     @Resource
-    private ByteCodeProperties properties;
-
+    private PenguinsProperties properties;
 
     public String upload(MultipartFile file, BusinessType businessType, String dir) throws Exception {
         String endpoint = this.properties.getAliyun().getEndpoint();

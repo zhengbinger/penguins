@@ -11,5 +11,13 @@ import com.penguins.entity.LoginInfo;
  */
 public interface LoginInfoService extends IService<LoginInfo> {
 
+    /**
+     * 根据账号查询用户登录信息
+     *
+     * @param username username
+     * @return LoginInfo
+     */
+    LoginInfo getByAccount(String username);
+
 }
 
