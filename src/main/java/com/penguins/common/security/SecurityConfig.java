@@ -1,4 +1,4 @@
-package com.penguins.common.config;
+package com.penguins.common.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -17,6 +16,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
+ * SpringSecurity 用户服务实现
+ *
  * @author 郑冰
  * @date 2022/5/10 15:21
  * @email mydreambing@126.com
@@ -28,9 +29,6 @@ public class PenguinsUserDetailsServiceImpl implements UserDetailsService {
     @Resource
     private LoginInfoService loginInfoService;
 
-    @Resource
-    private PasswordEncoder passwordEncoder;
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -38,7 +36,6 @@ public class PenguinsUserDetailsServiceImpl implements UserDetailsService {
         if (Objects.isNull(loginInfo)) {
             throw new UsernameNotFoundException("User Not Found!");
         }
-        //定义权限列表.
         List<GrantedAuthority> authorities = new ArrayList<>();
         // 用户可以访问的资源名称（或者说用户所拥有的权限） 注意：必须"ROLE_"开头
         authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
