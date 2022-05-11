@@ -1,21 +1,64 @@
 package com.penguins.common.interceptor;
 
+import com.penguins.utils.Convertor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Enumeration;
 
 /**
+ * 请求拦截器，记录日志，记录操作记录
+ *
  * @author 郑冰
  * @date 2022/5/10 12:06
  * @email mydreambing@126.com
  * @since jdk8
  **/
 public class RequestInterceptor implements HandlerInterceptor {
+
+    private final Logger LOGGER = LoggerFactory.getLogger(RequestInterceptor.class);
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println(1);
+
+        if (this.LOGGER.isDebugEnabled()) {
+            this.LOGGER.debug("uri:" + request.getRequestURI());
+            this.LOGGER.debug("contextPath:" + request.getContextPath());
+
+            this.LOGGER.debug("headers: ");
+            Enumeration<String> headers = request.getHeaderNames();
+            while (headers.hasMoreElements()) {
+                String header = headers.nextElement();
+                String value = request.getHeader(header);
+                this.LOGGER.debug("header: " + header + ":" + value);
+            }
+
+            this.LOGGER.debug("cookies: ");
+            if (request.getCookies() != null) {
+                for (Cookie cookie : request.getCookies()) {
+                    this.LOGGER.debug("cookie {}: {}", cookie.getName(), Convertor.toJson(cookie));
+                }
+            }
+        }
+        String uri = request.getRequestURI();
+        //对spring boot默认错误处理方法忽略
+        this.LOGGER.info("request uri=" + uri);
+        if ("/error".equals(uri)) {
+            return false;
+        }
+
+        // 打印请求参数：
+        this.LOGGER.info("请求参数：");
+        Enumeration<String> enu = request.getParameterNames();
+        while (enu.hasMoreElements()) {
+            String paraName = enu.nextElement();
+            this.LOGGER.info(paraName + ": " + request.getParameter(paraName));
+        }
         return HandlerInterceptor.super.preHandle(request, response, handler);
     }
 

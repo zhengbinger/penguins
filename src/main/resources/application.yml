@@ -36,5 +36,6 @@ mybatis-plus:
     db-config:
       id-type: auto
     banner: false
-
+    
+debug: true
 

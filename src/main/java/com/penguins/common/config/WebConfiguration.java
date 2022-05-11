@@ -1,6 +1,8 @@
 package com.penguins.common.config;
 
+import com.penguins.common.interceptor.RequestInterceptor;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -20,4 +22,9 @@ public class WebConfiguration implements WebMvcConfigurer {
                 addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new RequestInterceptor()).addPathPatterns("/**");
+        WebMvcConfigurer.super.addInterceptors(registry);
+    }
 }

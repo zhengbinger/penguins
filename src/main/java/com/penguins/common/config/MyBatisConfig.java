@@ -3,6 +3,7 @@ package com.penguins.common.config;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import com.penguins.common.interceptor.MybatisCommonInterceptor;
 import org.springframework.context.annotation.Bean;
 
 /**
@@ -26,10 +27,11 @@ public class MyBatisConfig {
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
         return interceptor;
     }
-//    @Bean
-//    public HandlerCommonInterceptor interceptor() {
-//        return new HandlerCommonInterceptor();
-//    }
+
+    @Bean
+    public MybatisCommonInterceptor interceptor() {
+        return new MybatisCommonInterceptor();
+    }
 
 
 }
