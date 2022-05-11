@@ -1,8 +1,10 @@
 package com.penguins.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author 郑冰
@@ -10,12 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
  * @email mydreambing@126.com
  * @since jdk8
  **/
-@RestController
-@RequestMapping("test")
+@Controller
+@Api(tags = "测试接口")
+@RequestMapping
 public class TestController {
 
-    @GetMapping
+    @ApiOperation("跳转登录页面")
+    @GetMapping("login")
     public String test() {
-        return "test";
+        return "login";
+    }
+
+    @ApiOperation("跳转首页")
+    @GetMapping("index")
+    public String index() {
+        return "index";
     }
 }

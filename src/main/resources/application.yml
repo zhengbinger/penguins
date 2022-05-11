@@ -9,6 +9,12 @@ spring:
     url: jdbc:mysql://localhost:3306/penguins?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
     password: Zb@123456
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
 #  security:
 #    user:
 #      name: admin
@@ -30,3 +36,5 @@ mybatis-plus:
     db-config:
       id-type: auto
     banner: false
+
+
