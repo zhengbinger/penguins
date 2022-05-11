@@ -64,7 +64,6 @@ public class RequestInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println(1);
         HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
     }
 

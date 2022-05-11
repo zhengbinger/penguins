@@ -1,22 +1,67 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
-    <link rel="stylesheet" th:href="@{webjars/bootstrap/3.4.0/css/bootstrap.css}" type="text/css">
-    <script th:src="@{webjars/jquery/3.5.1/jquery.js}" type="application/javascript"></script>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" rel="stylesheet">
+    <style>
+        .loginForm {
+            /*边框高度*/
+            height: 350px;
+            /*边框宽度*/
+            width: 500px;
+            /*边框颜色*/
+            border: #4d4d4d solid 1px;
+            /*边框圆角*/
+            border-radius: 4px;
+            /*阴影 水平方向，竖直方向，模糊距离*/
+            box-shadow: 5px 5px 5px #4d4d4d;
+            /*上边界距离*/
+            margin-top: 100px;
+            /*左边界距离：自动*/
+            margin-left: auto;
+            /*右边界距离：自动*/
+            margin-right: auto;
+            /*用户名、密码间距*/
+            padding: 20px 40px;
+        }
+
+        /*将用户登录置于中间*/
+        .loginForm h2 {
+            text-align: center;
+        }
+
+        /*修改button属性*/
+        .button {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
-<form method="POST" th:action="@{admin/user/login}">
-    <div>
-        用户名：<input id="username" name="username" type="text"/>
-    </div>
-    <div>
-        密&nbsp;&nbsp;&nbsp;码：<input id="password" name="password" type="password"/>
-    </div>
-    <div>
-        <input class="btn-primary" id="login" name="login" type="submit">
-    </div>
-</form>
+<div class="loginForm">
+    <h2>用户登录</h2>
+    <form method="post" th:action="@{/admin/user/login}">
+        <div class="form-group">
+            <label for="username">用户名</label>
+            <input class="form-control" id="username" name="username" placeholder="请输入用户名" type="text">
+        </div>
+        <div class="form-group">
+            <label for="password">密码</label>
+            <input class="form-control" id="password" name="password" placeholder="请输入密码" type="password">
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> 同意
+                <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;xxx安全协议</a> 与 <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;xxx隐私协议</a>
+            </label>
+        </div>
+        <div class="button">
+            <input class="btn btn-primary" type="submit" value="登 录"/>
+        </div>
+    </form>
+</div>
 </body>
 </html>
