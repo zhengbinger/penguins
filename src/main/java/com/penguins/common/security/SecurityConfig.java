@@ -58,7 +58,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/404").permitAll()
                 .antMatchers("/login").permitAll()
                 .anyRequest().authenticated()
-                .and()
+                .and().csrf().disable();
+        http
                 // 配置表单登陆
                 .formLogin()
                 .loginPage("/login")

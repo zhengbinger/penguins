@@ -12,26 +12,11 @@ import java.io.IOException;
 
 /**
  * 抽象的控制类
+ *
+ * @author zhengbing
  */
 public abstract class AbstractController {
 
-    /**
-     * 更新登录信息
-     */
-    /*protected void updateSessionUser() {
-    	// TODO 使用shiro api 更新登录信息
-    	try {
-    		// User loginUser = getLoginPortalUser();
-    
-    		Subject subject = SecurityUtils.getSubject();
-    		User loginUser = (User) subject.getPrincipal();
-    
-    		PropertyUtils.copyProperties(loginUser, userService.getWithTeacherFull(loginUser.getId()));
-    		// BeanUtils.copyProperties(loginUser, user);
-    	} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-    		throw new SystemException("更新session user错误", e);
-    	}
-    }*/
     protected HttpServletRequest getHttpServletRequest() {
         return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
     }
@@ -39,11 +24,6 @@ public abstract class AbstractController {
     protected HttpServletResponse getHttpServletResponse() {
         return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
     }
-
-//    protected Session getSession() {
-//        Subject currentUser = SecurityUtils.getSubject();
-//        return currentUser.getSession();
-//    }
 
     protected String readRequest() throws IOException {
         HttpServletRequest request = getHttpServletRequest();
@@ -64,37 +44,6 @@ public abstract class AbstractController {
     }
 
     /**
-     * 获取当前登录用户
-     *
-     * @return CommonUser
-     */
-//    protected CommonUser getLoginCommonUser() {
-//        Subject subject = SecurityUtils.getSubject();
-//        return (CommonUser) subject.getPrincipal();
-//    }
-//
-//    protected User getLoginPortalUser() {
-//        Subject subject = SecurityUtils.getSubject();
-//        return (User) subject.getPrincipal();
-//    }
-//
-//    protected AdminUser getLoginAdminUser() {
-//        Subject subject = SecurityUtils.getSubject();
-//        return (AdminUser) subject.getPrincipal();
-//    }
-//
-//    protected BaseEntity getLoginUser() {
-//        Subject subject = SecurityUtils.getSubject();
-//        return (BaseEntity) subject.getPrincipal();
-//    }
-//
-//    protected void checkOwner(Integer userId) {
-//        if (!getLoginCommonUser().getId().equals(userId)) {
-//            throw new BusinessException("当前用户不是数据项的所有者");
-//        }
-//    }
-
-    /**
      * 获取国际化资源文件
      *
      * @param key  属性文件key
@@ -109,7 +58,7 @@ public abstract class AbstractController {
         return new Result();
     }
 
-    protected Result success(Object data) {
+    protected Result<Object> success(Object data) {
         return Result.success(data);
     }
 

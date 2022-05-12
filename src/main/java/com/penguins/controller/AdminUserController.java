@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.penguins.common.Result;
 import com.penguins.common.base.AbstractController;
+import com.penguins.common.event.UserRegisterEvent;
 import com.penguins.dto.AdminUserDto;
 import com.penguins.entity.AdminUser;
 import com.penguins.service.AdminUserService;
@@ -12,6 +13,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -27,13 +29,15 @@ import java.util.List;
 @Slf4j
 @Api(value = "后台管理员用户", tags = "后台管理员用户")
 @RestController
-@RequestMapping("adminUser")
+@RequestMapping("admin/user")
 public class AdminUserController extends AbstractController {
     /**
      * 服务对象
      */
     @Resource
     private AdminUserService adminUserService;
+    @Resource
+    private ApplicationContext applicationContext;
 
     /**
      * 分页查询所有数据
@@ -73,6 +77,7 @@ public class AdminUserController extends AbstractController {
     @ApiOperation("新增数据")
     @PostMapping
     public Result insert(@RequestBody AdminUser adminUser) {
+        this.applicationContext.publishEvent(new UserRegisterEvent(this, adminUser));
         return success(this.adminUserService.saveOrUpdate(adminUser));
     }
 

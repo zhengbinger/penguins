@@ -48,9 +48,9 @@ public class RequestInterceptor implements HandlerInterceptor {
         String uri = request.getRequestURI();
         //对spring boot默认错误处理方法忽略
         this.LOGGER.info("request uri=" + uri);
-        if ("/error".equals(uri)) {
-            return false;
-        }
+//        if ("/error".equals(uri)) {
+//            return false;
+//        }
 
         // 打印请求参数：
         this.LOGGER.info("请求参数：");

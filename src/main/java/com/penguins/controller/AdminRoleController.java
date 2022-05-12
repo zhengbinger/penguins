@@ -85,7 +85,7 @@ public class AdminRoleController extends AbstractController {
     @PutMapping
     @ApiOperation("修改数据")
     public Result update(@RequestBody AdminRole adminRole) {
-        return success(this.adminRoleService.updateById(adminRole));
+        return success(this.adminRoleService.saveOrUpdate(adminRole));
     }
 
     /**
