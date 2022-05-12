@@ -4,6 +4,7 @@ import com.alibaba.fastjson2.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.security.web.savedrequest.RequestCache;
@@ -37,7 +38,13 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
         Enumeration enu = request.getParameterNames();
         while (enu.hasMoreElements()) {
             String paraName = (String) enu.nextElement();
-            System.out.println("参数- " + paraName + " : " + request.getParameter(paraName));
+            log.info("参数- " + paraName + " : " + request.getParameter(paraName));
+        }
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            String currentUserName = authentication.getName();
+            log.info(currentUserName);
+        } else {
+//            throw RuntimeException("No User")
         }
         log.info("登录认证成功");
         //这里写你登录成功后的逻辑，可以验证其他信息，如验证码等。

@@ -78,9 +78,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 登陆失败之后默认跳转页面路径
                 .failureUrl("/login?error=true")
                 //使用自定义的成功结果处理器
-//                .successHandler(this.loginSuccessHandler)
+                .successHandler(this.loginSuccessHandler)
                 //使用自定义失败的结果处理器
-//                .failureHandler(this.loginFailureHandler)
+                .failureHandler(this.loginFailureHandler)
                 .and()
                 // 3.登出配置
                 .logout()
