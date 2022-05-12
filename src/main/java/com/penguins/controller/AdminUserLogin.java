@@ -23,7 +23,6 @@ public class AdminUserLogin {
 
     @Resource
     private UserDetailsService userDetailsService;
-
     @Resource
     private PasswordEncoder passwordEncoder;
 
@@ -33,15 +32,4 @@ public class AdminUserLogin {
         return "login";
     }
 
-//    @PostMapping
-//    @ApiOperation("后台管理员用户登陆")
-//    public String loginIn(String username, String password) {
-//        UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
-//        if (Objects.isNull(userDetails)) {
-//            return "login";
-//        } else if (!this.passwordEncoder.encode(password).equals(userDetails.getPassword())) {
-//            return "login";
-//        }
-//        return "index";
-//    }
 }

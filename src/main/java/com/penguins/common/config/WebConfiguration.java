@@ -16,10 +16,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfiguration implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/doc.html")
-                .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").
                 addResourceLocations("classpath:/META-INF/resources/webjars/");
+        registry.addResourceHandler("/static/**").
+                addResourceLocations("classpath:/static/");
+        registry.addResourceHandler("/templates/**").
+                addResourceLocations("classpath:/templates/");
     }
 
     @Override

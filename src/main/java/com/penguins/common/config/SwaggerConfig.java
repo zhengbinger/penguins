@@ -12,6 +12,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 /**
+ * Swagger 配置类
+ *
  * @author 郑冰
  * @date 2022/4/5 13:32
  * @email mydreambing@126.com
