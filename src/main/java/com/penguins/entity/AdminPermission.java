@@ -14,7 +14,6 @@ import java.util.Date;
  * @author zhengbing
  * @since 2022-05-13 17:18:42
  */
-@SuppressWarnings("serial")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ApiModel("AdminPermission - 管理员权限")
@@ -48,7 +47,7 @@ public class AdminPermission extends Model<AdminPermission> {
      * 创建人
      */
     @ApiModelProperty("创建人")
-    private Integer createBy;
+    private String createBy;
     /**
      * 创建时间
      */
