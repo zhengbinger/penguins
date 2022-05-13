@@ -7,6 +7,8 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
+ * SpringMvc 通用配置
+ *
  * @author 郑冰
  * @date 2022/5/10 09:55
  * @email mydreambing@126.com
@@ -22,8 +24,6 @@ public class WebConfiguration implements WebMvcConfigurer {
                 addResourceLocations("classpath:/META-INF/resources/webjars/");
         registry.addResourceHandler("/static/**").
                 addResourceLocations("classpath:/static/");
-        registry.addResourceHandler("/templates/**").
-                addResourceLocations("classpath:/templates/");
     }
 
     @Override

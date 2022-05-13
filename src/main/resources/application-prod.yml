@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://gz-cynosdbmysql-grp-7920isu5.sql.tencentcdb.com:24945/penguins?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: Zb@123456
+
+knife4j:
+  enable: true
+  setting:
+    enableDynamicParameter: true
+  production: true
+
+debug: false

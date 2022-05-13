@@ -4,27 +4,14 @@ server:
 spring:
   application:
     name: penguins
+  config:
+    activate:
+      on-profile: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/penguins?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
     password: Zb@123456
-  thymeleaf:
-    cache: false
-    mode: HTML
-    encoding: UTF-8
-    servlet:
-      content-type: text/html
-#  security:
-#    user:
-#      name: admin
-#      password: 123456
-
-knife4j:
-  enable: true
-  setting:
-    enableDynamicParameter: true
-  production: false
 
 mybatis-plus:
   configuration:

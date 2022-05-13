@@ -1,0 +1,7 @@
+knife4j:
+  enable: true
+  setting:
+    enableDynamicParameter: true
+  production: false
+
+debug: true
