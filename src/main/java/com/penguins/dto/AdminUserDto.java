@@ -1,21 +1,24 @@
 package com.penguins.dto;
 
-import com.penguins.common.base.Page;
+import com.mini.douyin.common.Page;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 后台管理员用户(AdminUser)表Dto
+ * 管理员用户(AdminUser)表Dto
  *
  * @author zhengbing
- * @since 2022-05-09 12:01:34
+ * @since 2022-05-13 17:18:48
  */
+@SuppressWarnings("serial")
 @Data
-@ApiModel("AdminUser - 后台管理员用户")
+@EqualsAndHashCode(callSuper = true)
+@ApiModel("AdminUser - 管理员用户")
 public class AdminUserDto extends Page implements Serializable {
 
     private Integer id;
@@ -58,7 +61,7 @@ public class AdminUserDto extends Page implements Serializable {
      * 年龄
      */
     @ApiModelProperty("年龄")
-    private Object age;
+    private Integer age;
     /**
      * 是否已删除
      */

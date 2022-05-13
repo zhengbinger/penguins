@@ -1,6 +1,6 @@
 package com.penguins.dto;
 
-import com.penguins.common.base.Page;
+import com.mini.douyin.common.Page;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -10,14 +10,15 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 角色表(AdminRole)表Dto
+ * 管理员角色(AdminRole)表Dto
  *
  * @author zhengbing
- * @since 2022-05-09 12:01:34
+ * @since 2022-05-13 17:18:46
  */
+@SuppressWarnings("serial")
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel("AdminRole - 角色表")
+@ApiModel("AdminRole - 管理员角色")
 public class AdminRoleDto extends Page implements Serializable {
 
     /**

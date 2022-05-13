@@ -9,14 +9,15 @@ import lombok.EqualsAndHashCode;
 import java.util.Date;
 
 /**
- * 后台管理员用户(AdminUser)表实体类
+ * 管理员用户(AdminUser)表实体类
  *
  * @author zhengbing
- * @since 2022-05-09 12:01:34
+ * @since 2022-05-13 17:18:47
  */
+@SuppressWarnings("serial")
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel("AdminUser - 后台管理员用户")
+@ApiModel("AdminUser - 管理员用户")
 public class AdminUser extends Model<AdminUser> {
     private Integer id;
     /**
@@ -58,7 +59,7 @@ public class AdminUser extends Model<AdminUser> {
      * 年龄
      */
     @ApiModelProperty("年龄")
-    private Object age;
+    private Integer age;
     /**
      * 是否已删除
      */

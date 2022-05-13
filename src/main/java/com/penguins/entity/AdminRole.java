@@ -1,7 +1,6 @@
 package com.penguins.entity;
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -10,14 +9,15 @@ import lombok.EqualsAndHashCode;
 import java.util.Date;
 
 /**
- * 角色表(AdminRole)表实体类
+ * 管理员角色(AdminRole)表实体类
  *
  * @author zhengbing
- * @since 2022-05-09 12:01:34
+ * @since 2022-05-13 17:18:45
  */
+@SuppressWarnings("serial")
 @Data
 @EqualsAndHashCode(callSuper = true)
-@ApiModel("AdminRole - 角色表")
+@ApiModel("AdminRole - 管理员角色")
 public class AdminRole extends Model<AdminRole> {
     /**
      * 主键ID
@@ -43,7 +43,6 @@ public class AdminRole extends Model<AdminRole> {
      * 创建时间
      */
     @ApiModelProperty("创建时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     /**
      * 更新人
@@ -54,7 +53,6 @@ public class AdminRole extends Model<AdminRole> {
      * 更新时间
      */
     @ApiModelProperty("更新时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 }
 
