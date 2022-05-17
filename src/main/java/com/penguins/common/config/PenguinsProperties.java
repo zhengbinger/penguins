@@ -33,6 +33,11 @@ public class PenguinsProperties {
     private RongCloud rongCloud = new RongCloud();
 
     /**
+     * 邮件配置
+     */
+    private PenguinsMail mail = new PenguinsMail();
+
+    /**
      * 字节跳动小程序配置
      */
     @Data
@@ -62,7 +67,7 @@ public class PenguinsProperties {
      */
     @Data
     @Configuration
-    @ConfigurationProperties("bytecode.aliyun")
+    @ConfigurationProperties("penguins.aliyun")
     public static class Aliyun {
         private String region;
         private String endpoint;
@@ -76,7 +81,7 @@ public class PenguinsProperties {
      */
     @Data
     @Configuration
-    @ConfigurationProperties("bytecode.rong")
+    @ConfigurationProperties("penguins.rong")
     public static class RongCloud {
         /**
          * AppKey
@@ -88,4 +93,9 @@ public class PenguinsProperties {
         private String appSecret;
     }
 
+    @Data
+    @Configuration
+    @ConfigurationProperties("penguins.mail")
+    private static class PenguinsMail {
+    }
 }

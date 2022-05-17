@@ -1,13 +1,13 @@
 package com.penguins.dto;
 
-import com.mini.douyin.common.Page;
+import com.penguins.common.base.Page;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Date;
+
 
 /**
  * 用户(User)表Dto
@@ -15,9 +15,7 @@ import java.util.Date;
  * @author zhengbing
  * @since 2022-05-13 17:18:53
  */
-@SuppressWarnings("serial")
 @Data
-@EqualsAndHashCode(callSuper = true)
 @ApiModel("User - 用户")
 public class UserDto extends Page implements Serializable {
 

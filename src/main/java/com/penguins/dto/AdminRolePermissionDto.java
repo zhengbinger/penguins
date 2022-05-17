@@ -1,10 +1,9 @@
 package com.penguins.dto;
 
-import com.mini.douyin.common.Page;
+import com.penguins.common.base.Page;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
@@ -16,7 +15,6 @@ import java.io.Serializable;
  */
 @SuppressWarnings("serial")
 @Data
-@EqualsAndHashCode(callSuper = true)
 @ApiModel("AdminRolePermission - 管理员角色-权限关系")
 public class AdminRolePermissionDto extends Page implements Serializable {
 
