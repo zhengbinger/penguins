@@ -1,9 +1,8 @@
 package com.penguins.component.mail;
 
 import lombok.Data;
+import lombok.NonNull;
 import org.springframework.core.io.FileSystemResource;
-
-import java.util.List;
 
 /**
  * 发送邮件参数对象
@@ -15,6 +14,12 @@ import java.util.List;
  **/
 @Data
 public class MailObject {
+
+    /**
+     * 邮件类型
+     */
+    @NonNull
+    private MailType mailType;
     /**
      * 发送人
      */
@@ -22,7 +27,8 @@ public class MailObject {
     /**
      * 接收人集合
      */
-    private List<String> to;
+    @NonNull
+    private String[] to;
     /**
      * 邮件内容
      */
@@ -30,14 +36,14 @@ public class MailObject {
     /**
      * 抄送人
      */
-    private List<String> cc;
+    private String[] cc;
     /**
      * 密抄人
      */
-    private List<String> bcc;
+    private String[] bcc;
     /**
      * 附件数组
      */
-    private List<FileSystemResource> files;
+    private FileSystemResource[] files;
 
 }

@@ -1,7 +1,7 @@
 package com.penguins.controller;
 
-import com.penguins.component.mail.TemplateMailSender;
-import com.penguins.component.mail.TextMailSender;
+import com.penguins.component.mail.MailSenderFactory;
+import com.penguins.component.mail.MailType;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,18 +22,15 @@ import javax.annotation.Resource;
 public class TestController {
 
     @Resource
-    private TextMailSender textMailSender;
-
-    @Resource
-    private TemplateMailSender templateMailSender;
+    private MailSenderFactory mailSenderFactory;
 
     @GetMapping
     public void sendMail() {
-        this.textMailSender.send(null);
+        this.mailSenderFactory.getSender(MailType.TEXT).send(null);
     }
 
     @GetMapping("temp")
     public void sendMailTemplate() {
-        this.templateMailSender.send(null);
+        this.mailSenderFactory.getSender(MailType.TEMPLATE).send(null);
     }
 }

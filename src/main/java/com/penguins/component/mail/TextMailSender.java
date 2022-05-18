@@ -25,7 +25,7 @@ public class TextMailSender implements IMailSender {
     public void send(MailObject mailObject) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(this.mailProperties.getUsername());
-        message.setTo("mydreambing@126.com");
+        message.setTo(mailObject.getTo());
         message.setText("内容");
         message.setSubject("主题");
         message.setSentDate(new Date());
