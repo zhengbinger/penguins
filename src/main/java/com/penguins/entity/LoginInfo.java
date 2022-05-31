@@ -14,7 +14,6 @@ import java.util.Date;
  * @author zhengbing
  * @since 2022-05-13 17:18:50
  */
-@SuppressWarnings("serial")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ApiModel("LoginInfo - 登录信息")

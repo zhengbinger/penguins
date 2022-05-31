@@ -27,7 +27,7 @@ import java.util.List;
 @Slf4j
 @Api(value = "权限表", tags = "权限表")
 @RestController
-@RequestMapping("adminPermission")
+@RequestMapping("admin/permission")
 public class AdminPermissionController extends AbstractController {
     /**
      * 服务对象

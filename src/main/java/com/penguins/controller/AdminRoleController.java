@@ -27,7 +27,7 @@ import java.util.List;
 @Slf4j
 @Api(value = "角色表", tags = "角色表")
 @RestController
-@RequestMapping("adminRole")
+@RequestMapping("admin/role")
 public class AdminRoleController extends AbstractController {
     /**
      * 服务对象
