@@ -3,7 +3,6 @@ package com.penguins.common.config;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import com.penguins.common.interceptor.MybatisCommonInterceptor;
 import org.springframework.context.annotation.Bean;
 
 /**
@@ -28,10 +27,15 @@ public class MyBatisConfig {
         return interceptor;
     }
 
-    @Bean
-    public MybatisCommonInterceptor interceptor() {
-        return new MybatisCommonInterceptor();
-    }
+    /**
+     * 添加Mybatis 公共拦截器
+     *
+     * @return MybatisCommonInterceptor
+     */
+//    @Bean
+//    public MybatisCommonInterceptor interceptor() {
+//        return new MybatisCommonInterceptor();
+//    }
 
 
 }

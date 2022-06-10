@@ -2,6 +2,7 @@ package com.penguins.common.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -39,13 +40,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("admin")
-//                .password(passwordEncoder().encode("123456"))
-//                .authorities("ADMIN");
-//    }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .withUser("admin")
+                .password(passwordEncoder().encode("123456"))
+                .authorities("ADMIN");
+    }
 
 
     @Override
@@ -95,6 +96,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                //.maximumSessions(1).expiredSessionStrategy(expiredSessionStrategy())
 //                //单用户登录，如果有一个登录了，同一个用户在其他地方不能登录
 //                .maximumSessions(1).maxSessionsPreventsLogin(true);
+        http.csrf().disable();
         super.configure(http);
     }
 

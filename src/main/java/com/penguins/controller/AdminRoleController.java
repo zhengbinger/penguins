@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * 角色表(AdminRole)表控制层
@@ -96,8 +95,8 @@ public class AdminRoleController extends AbstractController {
      */
     @DeleteMapping
     @ApiOperation("删除数据")
-    public Result delete(@RequestParam("ids") List<Long> ids) {
-        return success(this.adminRoleService.removeByIds(ids));
+    public Result delete(@RequestParam("ids") Long ids) {
+        return success(this.adminRoleService.removeById(ids));
     }
 }
 

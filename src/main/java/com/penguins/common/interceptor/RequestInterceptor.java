@@ -26,38 +26,38 @@ public class RequestInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        if (this.LOGGER.isDebugEnabled()) {
-            this.LOGGER.debug("uri:" + request.getRequestURI());
-            this.LOGGER.debug("contextPath:" + request.getContextPath());
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("uri:" + request.getRequestURI());
+            LOGGER.debug("contextPath:" + request.getContextPath());
 
-            this.LOGGER.debug("headers: ");
+            LOGGER.debug("headers: ");
             Enumeration<String> headers = request.getHeaderNames();
             while (headers.hasMoreElements()) {
                 String header = headers.nextElement();
                 String value = request.getHeader(header);
-                this.LOGGER.debug("header: " + header + ":" + value);
+                LOGGER.debug("header: " + header + ":" + value);
             }
 
-            this.LOGGER.debug("cookies: ");
+            LOGGER.debug("cookies: ");
             if (request.getCookies() != null) {
                 for (Cookie cookie : request.getCookies()) {
-                    this.LOGGER.debug("cookie {}: {}", cookie.getName(), Convertor.toJson(cookie));
+                    LOGGER.debug("cookie {}: {}", cookie.getName(), Convertor.toJson(cookie));
                 }
             }
         }
         String uri = request.getRequestURI();
         //对spring boot默认错误处理方法忽略
-        this.LOGGER.info("request uri=" + uri);
+        LOGGER.info("request uri=" + uri);
 //        if ("/error".equals(uri)) {
 //            return false;
 //        }
 
         // 打印请求参数：
-        this.LOGGER.info("请求参数：");
+        LOGGER.info("请求参数：");
         Enumeration<String> enu = request.getParameterNames();
         while (enu.hasMoreElements()) {
             String paraName = enu.nextElement();
-            this.LOGGER.info(paraName + ": " + request.getParameter(paraName));
+            LOGGER.info(paraName + ": " + request.getParameter(paraName));
         }
         return HandlerInterceptor.super.preHandle(request, response, handler);
     }

@@ -14,7 +14,6 @@ import java.util.Date;
  * @author zhengbing
  * @since 2022-05-13 17:18:45
  */
-@SuppressWarnings("serial")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ApiModel("AdminRole - 管理员角色")
@@ -34,6 +33,11 @@ public class AdminRole extends Model<AdminRole> {
      */
     @ApiModelProperty("角色名称")
     private String name;
+    /**
+     * 是否已删除
+     */
+    @ApiModelProperty("是否已删除")
+    private Integer isDeleted;
     /**
      * 创建人
      */

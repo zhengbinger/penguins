@@ -11,5 +11,7 @@ import com.penguins.entity.AdminRole;
  */
 public interface AdminRoleService extends IService<AdminRole> {
 
+    void task();
+
 }
 
