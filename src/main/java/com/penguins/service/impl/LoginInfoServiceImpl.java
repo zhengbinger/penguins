@@ -25,7 +25,8 @@ public class LoginInfoServiceImpl extends ServiceImpl<LoginInfoRepository, Login
     public LoginInfo getByAccount(String username) {
         QueryWrapper<LoginInfo> query = new QueryWrapper<>();
         query.eq("login_phone", username);
-        return this.loginInfoRepository.selectOne(query);
+        LoginInfo loginInfo = loginInfoRepository.selectOne(query);
+        return loginInfo;
     }
 }
 

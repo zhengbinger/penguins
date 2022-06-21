@@ -20,7 +20,7 @@ spring:
     port: 587
     # 默认的邮件编码为UTF-8
     default-encoding: UTF-8
-    # 配置SSL 加密工厂
+    #     配置SSL 加密工厂
     properties:
       mail:
         smtp:
@@ -30,20 +30,18 @@ spring:
 
 mybatis-plus:
   configuration:
-    map-underscore-to-camel-case: true
+    #    map-underscore-to-camel-case: true
     #    auto-mapping-behavior: full
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath*:mapper/**/*Mapper.xml
-  global-config:
+    #  mapper-locations: classpath*:mapper/**/*Mapper.xml
+    #  global-config:
     # 逻辑删除配置
-    db-config:
-      id-type: auto
-      logic-delete-field: isDeleted
-      logic-delete-value: 1
-      logic-not-delete-value: 0
-    banner: false
-
-debug: true
+    #    db-config:
+    #      id-type: auto
+    #      logic-delete-field: isDeleted
+    #      logic-delete-value: 1
+    #      logic-not-delete-value: 0
+#    banner: false
 
 
 
