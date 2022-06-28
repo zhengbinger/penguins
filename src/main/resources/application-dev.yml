@@ -4,5 +4,7 @@ knife4j:
     enableDynamicParameter: true
   production: false
 
-debug: true
-
+#debug: true
+logging:
+  level:
+    root: debug

@@ -102,8 +102,8 @@ public class Result<T> {
     /**
      * 构建session超时/未登录 结果模型
      *
-     * @param loginUrl
-     * @return
+     * @param loginUrl String
+     * @return Result
      */
     public static Result sessionTimeout(String loginUrl) {
         Result result = sessionTimeout();
@@ -114,7 +114,7 @@ public class Result<T> {
     /**
      * 构建无权限 结果模型
      *
-     * @return
+     * @return Result
      */
     public static Result forbidden() {
         return new Result(ErrorCodeEnum.AUTH_ACCOUNT_FORBIDDEN.getCode(), CommonUtil.getText(ErrorCodeEnum.AUTH_ACCOUNT_FORBIDDEN.getKey()));
@@ -128,6 +128,9 @@ public class Result<T> {
     public static Result accountDisabled() {
         return new Result(ErrorCodeEnum.AUTH_ACCOUNT_DISABLED.getCode(), CommonUtil.getText(ErrorCodeEnum.AUTH_ACCOUNT_DISABLED.getKey()));
     }
+
+//    public static Result<Object> fail(String message) {
+//    }
 
 //    /**
 //     * 判断是否需要显示验证码, 设置body字段
