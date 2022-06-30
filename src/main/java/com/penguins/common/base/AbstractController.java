@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * 抽象的控制类
@@ -18,28 +19,23 @@ import java.io.IOException;
 public abstract class AbstractController {
 
     protected HttpServletRequest getHttpServletRequest() {
-        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
     }
 
     protected HttpServletResponse getHttpServletResponse() {
-        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
+        return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getResponse();
     }
 
     protected String readRequest() throws IOException {
         HttpServletRequest request = getHttpServletRequest();
 
-        BufferedReader br = request.getReader();
-        try {
+        try (BufferedReader br = request.getReader()) {
             StringBuilder sb = new StringBuilder();
-            String line = null;
+            String line;
             while ((line = br.readLine()) != null) {
                 sb.append(line);
             }
             return sb.toString();
-        } finally {
-            if (br != null) {
-                br.close();
-            }
         }
     }
 
@@ -63,7 +59,7 @@ public abstract class AbstractController {
     }
 
     protected Result error(String key, Object... objects) {
-        return Result.error(this.getText(key, objects));
+        return Result.error(getText(key, objects));
     }
 
 }
