@@ -8,7 +8,6 @@ package com.penguins.common.exception;
  * @email mydreambing@126.com
  */
 public class PenguinsException extends RuntimeException {
-    private static final long serialVersionUID = -3286131001092080241L;
 
     public PenguinsException() {
         super();
