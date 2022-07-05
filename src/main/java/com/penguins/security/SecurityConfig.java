@@ -65,7 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 配置默认登录入口
                 .loginProcessingUrl("/admin/user/login")
                 //登录成功后默认的跳转页面路径
-                .defaultSuccessUrl("/index")
+                .defaultSuccessUrl("/doc.html")
                 // 登陆失败之后默认跳转页面路径
                 .failureUrl("/login?error=true")
                 //使用自定义的成功结果处理器

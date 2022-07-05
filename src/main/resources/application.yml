@@ -1,16 +1,11 @@
 server:
-  port: 7777
+  port: 80
 
 spring:
   application:
     name: penguins
   profiles:
     active: dev
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/penguins?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull&useSSL=false
-    username: root
-    password: Zb@123456
   mail:
     # 配置 SMTP 服务器地址
     host: smtp.qq.com
