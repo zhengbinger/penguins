@@ -2,6 +2,7 @@ package com.penguins.common.event.listener;
 
 import com.penguins.common.event.UserRegisterEvent;
 import com.penguins.entity.AdminUser;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
@@ -13,11 +14,12 @@ import org.springframework.stereotype.Component;
  * @email mydreambing@126.com
  * @since jdk8
  **/
+@Slf4j
 @Component
 public class UserRegisterListener {
     @EventListener
     public void userRegister(UserRegisterEvent userRegisterEvent) {
         AdminUser user = userRegisterEvent.getUser();
-        System.out.println("用户注册监听：" + user.getUserName() + "/" + user.getEmail());
+        log.info("用户注册监听：" + user.getUserName() + "/" + user.getEmail());
     }
 }
