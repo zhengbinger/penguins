@@ -5,6 +5,14 @@ knife4j:
   production: false
 
 #debug: true
-logging:
-  level:
-    root: debug
+#logging:
+#  level:
+#    root: debug
+spring:
+  security:
+    user:
+      name: admin
+      password: admin
+      roles:
+        - ADMIN
+        - USER

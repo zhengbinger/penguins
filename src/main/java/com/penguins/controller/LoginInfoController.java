@@ -25,7 +25,7 @@ import java.util.List;
  * @since 2022-05-09 12:01:35
  */
 @Slf4j
-@Api(value = "登录信息表", tags = "登录信息表")
+@Api(value = "登录用户信息", tags = "登录用户信息")
 @RestController
 @RequestMapping("loginInfo")
 public class LoginInfoController extends AbstractController {
