@@ -30,6 +30,7 @@ spring:
         #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
         debug: true
 
+
 mybatis-plus:
   configuration:
     #    map-underscore-to-camel-case: true
@@ -44,5 +45,11 @@ mybatis-plus:
     #      logic-not-delete-value: 0
     #  mapper-locations: classpath*:mappers/**/*Mapper.xml
 
+penguins:
+  aliyun:
+    endpoint: oss-cn-shenzhen.aliyuncs.com
+    bucket: zhengbing
+    access-key-id: LTAI5tHjCVYJKc8a2YHQFM9A
+    access-key-secret: KQ4crDI7490kwAbeqf7DJud47Hur7f
 
 

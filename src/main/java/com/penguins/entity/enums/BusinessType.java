@@ -10,31 +10,7 @@ package com.penguins.entity.enums;
  **/
 public enum BusinessType {
     /**
-     * ADMIN 用户
+     * 管理后台
      */
     admin,
-    /**
-     * 小程序端用户
-     */
-    user,
-    /**
-     * 达人信息
-     */
-    expert,
-    /**
-     * 达人圈子
-     */
-    circle,
-    /**
-     * 盲盒
-     */
-    box,
-    /**
-     * 盲盒项
-     */
-    boxItem,
-    /**
-     * 实事新闻
-     */
-    news
 }
