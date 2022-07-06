@@ -81,11 +81,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 // 4. Session管理
                 .sessionManagement()
-                .invalidSessionUrl("/login")
-                //单用户登录，如果有一个登录了，同一个用户在其他地方登录将前一个剔除下线
-//                .maximumSessions(1).expiredSessionStrategy(expiredSessionStrategy())
-                //单用户登录，如果有一个登录了，同一个用户在其他地方不能登录
-                .maximumSessions(1).maxSessionsPreventsLogin(true);
+                .invalidSessionUrl("/login");
+        //单用户登录，如果有一个登录了，同一个用户在其他地方登录将前一个剔除下线
+        //.maximumSessions(1).expiredSessionStrategy(expiredSessionStrategy())
+        //单用户登录，如果有一个登录了，同一个用户在其他地方不能登录
+        //.maximumSessions(1).maxSessionsPreventsLogin(true);
         http.csrf().disable();
     }
 
@@ -93,6 +93,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         // 过滤静态文件访问
         web.ignoring().antMatchers("/static/**")
-                .antMatchers("/webjars/**");
+                .antMatchers("/webjars/**")
+                .antMatchers("/**");
     }
 }
