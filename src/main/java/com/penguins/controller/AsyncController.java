@@ -1,4 +1,4 @@
-package com.penguins.controller;
+package com.penguins.dto.controller;
 
 import com.penguins.service.AdminRoleService;
 import io.swagger.annotations.Api;

@@ -1,4 +1,4 @@
-package com.penguins.controller;
+package com.penguins.dto.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -49,7 +49,7 @@ public class AdminRolePermissionController extends AbstractController {
         page.setSize(adminRolePermissionDto.getSize());
         AdminRolePermission adminRolePermission = new AdminRolePermission();
         BeanUtils.copyProperties(adminRolePermissionDto, adminRolePermission);
-        return success(this.adminRolePermissionService.page(page, new QueryWrapper<>(adminRolePermission)));
+        return success(adminRolePermissionService.page(page, new QueryWrapper<>(adminRolePermission)));
     }
 
     /**
@@ -61,7 +61,7 @@ public class AdminRolePermissionController extends AbstractController {
     @GetMapping("{id}")
     @ApiOperation("通过主键查询单条数据")
     public Result selectOne(@PathVariable Serializable id) {
-        return success(this.adminRolePermissionService.getById(id));
+        return success(adminRolePermissionService.getById(id));
     }
 
     /**
@@ -73,7 +73,7 @@ public class AdminRolePermissionController extends AbstractController {
     @ApiOperation("新增数据")
     @PostMapping
     public Result insert(@RequestBody AdminRolePermission adminRolePermission) {
-        return success(this.adminRolePermissionService.saveOrUpdate(adminRolePermission));
+        return success(adminRolePermissionService.saveOrUpdate(adminRolePermission));
     }
 
     /**
@@ -85,7 +85,7 @@ public class AdminRolePermissionController extends AbstractController {
     @PutMapping
     @ApiOperation("修改数据")
     public Result update(@RequestBody AdminRolePermission adminRolePermission) {
-        return success(this.adminRolePermissionService.updateById(adminRolePermission));
+        return success(adminRolePermissionService.updateById(adminRolePermission));
     }
 
     /**
@@ -97,7 +97,7 @@ public class AdminRolePermissionController extends AbstractController {
     @DeleteMapping
     @ApiOperation("删除数据")
     public Result delete(@RequestParam("ids") List<Long> ids) {
-        return success(this.adminRolePermissionService.removeByIds(ids));
+        return success(adminRolePermissionService.removeByIds(ids));
     }
 }
 

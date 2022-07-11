@@ -1,4 +1,4 @@
-package com.penguins.controller;
+package com.penguins.dto.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -49,7 +49,7 @@ public class AdminUserRoleController extends AbstractController {
         page.setSize(adminUserRoleDto.getSize());
         AdminUserRole adminUserRole = new AdminUserRole();
         BeanUtils.copyProperties(adminUserRoleDto, adminUserRole);
-        return success(this.adminUserRoleService.page(page, new QueryWrapper<>(adminUserRole)));
+        return success(adminUserRoleService.page(page, new QueryWrapper<>(adminUserRole)));
     }
 
     /**
@@ -61,7 +61,7 @@ public class AdminUserRoleController extends AbstractController {
     @GetMapping("{id}")
     @ApiOperation("通过主键查询单条数据")
     public Result selectOne(@PathVariable Serializable id) {
-        return success(this.adminUserRoleService.getById(id));
+        return success(adminUserRoleService.getById(id));
     }
 
     /**
@@ -73,7 +73,7 @@ public class AdminUserRoleController extends AbstractController {
     @ApiOperation("新增数据")
     @PostMapping
     public Result insert(@RequestBody AdminUserRole adminUserRole) {
-        return success(this.adminUserRoleService.saveOrUpdate(adminUserRole));
+        return success(adminUserRoleService.saveOrUpdate(adminUserRole));
     }
 
     /**
@@ -85,7 +85,7 @@ public class AdminUserRoleController extends AbstractController {
     @PutMapping
     @ApiOperation("修改数据")
     public Result update(@RequestBody AdminUserRole adminUserRole) {
-        return success(this.adminUserRoleService.updateById(adminUserRole));
+        return success(adminUserRoleService.updateById(adminUserRole));
     }
 
     /**
@@ -97,7 +97,7 @@ public class AdminUserRoleController extends AbstractController {
     @DeleteMapping
     @ApiOperation("删除数据")
     public Result delete(@RequestParam("ids") List<Long> ids) {
-        return success(this.adminUserRoleService.removeByIds(ids));
+        return success(adminUserRoleService.removeByIds(ids));
     }
 }
 

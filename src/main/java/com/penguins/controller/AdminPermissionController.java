@@ -1,4 +1,4 @@
-package com.penguins.controller;
+package com.penguins.dto.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -49,7 +49,7 @@ public class AdminPermissionController extends AbstractController {
         page.setSize(adminPermissionDto.getSize());
         AdminPermission adminPermission = new AdminPermission();
         BeanUtils.copyProperties(adminPermissionDto, adminPermission);
-        return success(this.adminPermissionService.page(page, new QueryWrapper<>(adminPermission)));
+        return success(adminPermissionService.page(page, new QueryWrapper<>(adminPermission)));
     }
 
     /**
@@ -61,7 +61,7 @@ public class AdminPermissionController extends AbstractController {
     @GetMapping("{id}")
     @ApiOperation("通过主键查询单条数据")
     public Result selectOne(@PathVariable Serializable id) {
-        return success(this.adminPermissionService.getById(id));
+        return success(adminPermissionService.getById(id));
     }
 
     /**
@@ -73,7 +73,7 @@ public class AdminPermissionController extends AbstractController {
     @ApiOperation("新增数据")
     @PostMapping
     public Result insert(@RequestBody AdminPermission adminPermission) {
-        return success(this.adminPermissionService.saveOrUpdate(adminPermission));
+        return success(adminPermissionService.saveOrUpdate(adminPermission));
     }
 
     /**
@@ -85,7 +85,7 @@ public class AdminPermissionController extends AbstractController {
     @PutMapping
     @ApiOperation("修改数据")
     public Result update(@RequestBody AdminPermission adminPermission) {
-        return success(this.adminPermissionService.updateById(adminPermission));
+        return success(adminPermissionService.updateById(adminPermission));
     }
 
     /**
@@ -97,7 +97,7 @@ public class AdminPermissionController extends AbstractController {
     @DeleteMapping
     @ApiOperation("删除数据")
     public Result delete(@RequestParam("ids") List<Long> ids) {
-        return success(this.adminPermissionService.removeByIds(ids));
+        return success(adminPermissionService.removeByIds(ids));
     }
 }
 

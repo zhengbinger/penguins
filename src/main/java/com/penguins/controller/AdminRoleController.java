@@ -1,4 +1,4 @@
-package com.penguins.controller;
+package com.penguins.dto.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -48,7 +48,7 @@ public class AdminRoleController extends AbstractController {
         page.setSize(adminRoleDto.getSize());
         AdminRole adminRole = new AdminRole();
         BeanUtils.copyProperties(adminRoleDto, adminRole);
-        return success(this.adminRoleService.page(page, new QueryWrapper<>(adminRole)));
+        return success(adminRoleService.page(page, new QueryWrapper<>(adminRole)));
     }
 
     /**
@@ -60,7 +60,7 @@ public class AdminRoleController extends AbstractController {
     @GetMapping("{id}")
     @ApiOperation("通过主键查询单条数据")
     public Result selectOne(@PathVariable Serializable id) {
-        return success(this.adminRoleService.getById(id));
+        return success(adminRoleService.getById(id));
     }
 
     /**
@@ -72,7 +72,7 @@ public class AdminRoleController extends AbstractController {
     @ApiOperation("新增数据")
     @PostMapping
     public Result insert(@RequestBody AdminRole adminRole) {
-        return success(this.adminRoleService.saveOrUpdate(adminRole));
+        return success(adminRoleService.saveOrUpdate(adminRole));
     }
 
     /**
@@ -84,7 +84,7 @@ public class AdminRoleController extends AbstractController {
     @PutMapping
     @ApiOperation("修改数据")
     public Result update(@RequestBody AdminRole adminRole) {
-        return success(this.adminRoleService.saveOrUpdate(adminRole));
+        return success(adminRoleService.saveOrUpdate(adminRole));
     }
 
     /**
@@ -96,7 +96,7 @@ public class AdminRoleController extends AbstractController {
     @DeleteMapping
     @ApiOperation("删除数据")
     public Result delete(@RequestParam("ids") Long ids) {
-        return success(this.adminRoleService.removeById(ids));
+        return success(adminRoleService.removeById(ids));
     }
 }
 

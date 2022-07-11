@@ -1,4 +1,4 @@
-package com.penguins.controller;
+package com.penguins.dto.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -53,7 +53,7 @@ public class AdminUserController extends AbstractController {
         page.setSize(adminUserDto.getSize());
         AdminUser adminUser = new AdminUser();
         BeanUtils.copyProperties(adminUserDto, adminUser);
-        return success(this.adminUserService.page(page, new QueryWrapper<>(adminUser)));
+        return success(adminUserService.page(page, new QueryWrapper<>(adminUser)));
     }
 
     /**
@@ -65,7 +65,7 @@ public class AdminUserController extends AbstractController {
     @GetMapping("{id}")
     @ApiOperation("通过主键查询单条数据")
     public Result selectOne(@PathVariable Serializable id) {
-        return success(this.adminUserService.getById(id));
+        return success(adminUserService.getById(id));
     }
 
     /**
@@ -77,8 +77,8 @@ public class AdminUserController extends AbstractController {
     @ApiOperation("新增数据")
     @PostMapping
     public Result insert(@RequestBody AdminUser adminUser) {
-        this.applicationContext.publishEvent(new UserRegisterEvent(this, adminUser));
-        return success(this.adminUserService.saveOrUpdate(adminUser));
+        applicationContext.publishEvent(new UserRegisterEvent(this, adminUser));
+        return success(adminUserService.saveOrUpdate(adminUser));
     }
 
     /**
@@ -90,7 +90,7 @@ public class AdminUserController extends AbstractController {
     @PutMapping
     @ApiOperation("修改数据")
     public Result update(@RequestBody AdminUser adminUser) {
-        return success(this.adminUserService.updateById(adminUser));
+        return success(adminUserService.updateById(adminUser));
     }
 
     /**
@@ -102,7 +102,7 @@ public class AdminUserController extends AbstractController {
     @DeleteMapping
     @ApiOperation("删除数据")
     public Result delete(@RequestParam("ids") List<Long> ids) {
-        return success(this.adminUserService.removeByIds(ids));
+        return success(adminUserService.removeByIds(ids));
     }
 }
 
