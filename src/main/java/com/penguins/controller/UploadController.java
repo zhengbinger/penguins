@@ -1,4 +1,4 @@
-package com.penguins.dto.controller;
+package com.penguins.controller;
 
 import com.penguins.common.Result;
 import com.penguins.component.oss.AliyunOssHandler;

@@ -93,7 +93,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         // 过滤静态文件访问
         web.ignoring().antMatchers("/static/**")
-                .antMatchers("/webjars/**")
-                .antMatchers("/**");
+                .antMatchers("/webjars/**");
+//                .antMatchers("/**");
     }
 }

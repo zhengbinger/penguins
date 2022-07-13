@@ -1,5 +1,5 @@
 server:
-  port: 80
+  port: 7777
 
 spring:
   application:
@@ -39,6 +39,8 @@ mybatis-plus:
     #      logic-delete-value: 1
     #      logic-not-delete-value: 0
     #  mapper-locations: classpath*:mappers/**/*Mapper.xml
+
+    ##  you may not control all the events that happen to you ,but you can decide not to be reduce by them;
 
 penguins:
   aliyun:
