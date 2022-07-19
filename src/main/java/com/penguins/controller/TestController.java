@@ -3,6 +3,7 @@ package com.penguins.controller;
 import com.penguins.component.mail.MailSenderFactory;
 import com.penguins.component.mail.MailType;
 import com.penguins.dto.TestDto;
+import com.penguins.security.PrincipalContext;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -55,9 +56,10 @@ public class TestController {
 
     @GetMapping("gpo")
     public TestDto gpo() {
+        String username = PrincipalContext.getCurrentPrincipal();
         TestDto testDto = new TestDto();
         testDto.setId(UUID.randomUUID().toString());
-        testDto.setName("zhengbing");
+        testDto.setName(username);
         return testDto;
     }
 }
