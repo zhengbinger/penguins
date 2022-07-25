@@ -8,7 +8,6 @@ package com.penguins.common.exception;
  * @email mydreambing@126.com
  */
 public class PenguinsException extends RuntimeException {
-
     public PenguinsException() {
         super();
     }

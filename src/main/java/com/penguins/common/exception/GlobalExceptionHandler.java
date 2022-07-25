@@ -1,35 +1,22 @@
-//package com.penguins.common.exception;
-//
-//import com.penguins.common.Result;
-//import lombok.extern.slf4j.Slf4j;
-//import org.springframework.beans.TypeMismatchException;
-//import org.springframework.dao.DuplicateKeyException;
-//import org.springframework.http.converter.HttpMessageNotReadableException;
-//import org.springframework.stereotype.Component;
-//import org.springframework.validation.FieldError;
-//import org.springframework.web.HttpRequestMethodNotSupportedException;
-//import org.springframework.web.bind.MethodArgumentNotValidException;
-//import org.springframework.web.bind.MissingServletRequestParameterException;
-//import org.springframework.web.bind.annotation.ExceptionHandler;
-//import org.springframework.web.bind.annotation.RestControllerAdvice;
-//
-//import java.io.IOException;
-//import java.net.SocketTimeoutException;
-//import java.sql.SQLException;
-//import java.util.List;
-//
-///**
-// * 全局统一异常处理
-// *
-// * @author 郑冰
-// * @email mydreambing@126.com
-// * @since jdk8
-// **/
-//
-//@Slf4j
-//@Component
-//@RestControllerAdvice
-//public class GlobalExceptionHandler {
+package com.penguins.common.exception;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+
+/**
+ * 全局统一异常处理
+ *
+ * @author 郑冰
+ * @email mydreambing@126.com
+ * @since jdk8
+ **/
+
+@Slf4j
+@Component
+@RestControllerAdvice
+public class GlobalExceptionHandler {
 //
 //    /**
 //     * 系统自定义异常
@@ -193,5 +180,5 @@
 //                        + element.getLineNumber());
 //        return Result.fail("【 PENGUINS 系统内部错误！】" + e.getMessage());
 //    }
-//}
-//
+}
+
