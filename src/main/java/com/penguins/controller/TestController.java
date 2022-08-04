@@ -1,7 +1,9 @@
 package com.penguins.controller;
 
+import com.penguins.common.Result;
 import com.penguins.component.mail.MailSenderFactory;
 import com.penguins.component.mail.MailType;
+import com.penguins.component.wework.WeWorkAccessTokenHandler;
 import com.penguins.dto.TestDto;
 import com.penguins.security.PrincipalContext;
 import io.swagger.annotations.Api;
@@ -61,5 +63,13 @@ public class TestController {
         testDto.setId(UUID.randomUUID().toString());
         testDto.setName(username);
         return testDto;
+    }
+
+    @Resource
+    private WeWorkAccessTokenHandler weWorkAccessTokenHandler;
+
+    @GetMapping("token")
+    public Result<String> getWeWorkAccessToken() {
+        return Result.success(weWorkAccessTokenHandler.getAccessToken());
     }
 }

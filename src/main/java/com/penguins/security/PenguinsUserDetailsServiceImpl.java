@@ -1,4 +1,4 @@
-package com.penguins.common.security;
+package com.penguins.security;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.penguins.entity.LoginInfo;

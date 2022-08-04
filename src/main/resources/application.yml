@@ -24,6 +24,9 @@ spring:
           socketFactoryClass: javax.net.ssl.SSLSocketFactory
         #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
         debug: true
+  redis:
+    host: localhost
+    port: 6379
 
 
 mybatis-plus:
@@ -48,5 +51,11 @@ penguins:
     bucket: zhengbing
     access-key-id: LTAI5tHjCVYJKc8a2YHQFM9A
     access-key-secret: KQ4crDI7490kwAbeqf7DJud47Hur7f
+
+qywx:
+  qy-id: wwc9c23a98dd7baa97
+  flp:
+    agent-id: 1000003
+    secret: CH93K6dxDw362UZj1nqKAMpYj6jYbIwERr5lDNVJJ8o
 
 
