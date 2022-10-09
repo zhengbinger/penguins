@@ -50,15 +50,15 @@ public abstract class AbstractController {
         return CommonUtil.getText(key, args);
     }
 
-    protected Result success() {
-        return new Result();
+    protected <T> Result<T> success() {
+        return new Result<T>();
     }
 
-    protected Result<Object> success(Object data) {
+    protected <T> Result<T> success(T data) {
         return Result.success(data);
     }
 
-    protected Result error(String key, Object... objects) {
+    protected <T> Result<T> error(String key, Object... objects) {
         return Result.error(getText(key, objects));
     }
 

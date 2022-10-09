@@ -43,7 +43,7 @@ public class LoginInfoController extends AbstractController {
      */
     @GetMapping
     @ApiOperation("分页查询所有数据")
-    public Result selectAll(LoginInfoDto loginInfoDto) {
+    public Result<Page<LoginInfo>> selectAll(LoginInfoDto loginInfoDto) {
         Page<LoginInfo> page = new Page<>();
         page.setCurrent(loginInfoDto.getCurrent());
         page.setSize(loginInfoDto.getSize());
@@ -60,7 +60,7 @@ public class LoginInfoController extends AbstractController {
      */
     @GetMapping("{id}")
     @ApiOperation("通过主键查询单条数据")
-    public Result selectOne(@PathVariable Serializable id) {
+    public Result<LoginInfo> selectOne(@PathVariable Serializable id) {
         return success(loginInfoService.getById(id));
     }
 
@@ -72,7 +72,7 @@ public class LoginInfoController extends AbstractController {
      */
     @ApiOperation("新增数据")
     @PostMapping
-    public Result insert(@RequestBody LoginInfo loginInfo) {
+    public Result<Boolean> insert(@RequestBody LoginInfo loginInfo) {
         return success(loginInfoService.saveOrUpdate(loginInfo));
     }
 
@@ -84,7 +84,7 @@ public class LoginInfoController extends AbstractController {
      */
     @PutMapping
     @ApiOperation("修改数据")
-    public Result update(@RequestBody LoginInfo loginInfo) {
+    public Result<Boolean> update(@RequestBody LoginInfo loginInfo) {
         return success(loginInfoService.updateById(loginInfo));
     }
 
@@ -96,7 +96,7 @@ public class LoginInfoController extends AbstractController {
      */
     @DeleteMapping
     @ApiOperation("删除数据")
-    public Result delete(@RequestParam("ids") List<Long> ids) {
+    public Result<Boolean> delete(@RequestParam("ids") List<Long> ids) {
         return success(loginInfoService.removeByIds(ids));
     }
 }

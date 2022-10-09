@@ -11,5 +11,5 @@ public class Constants {
 
     static final String SCHEMA = "https";
     static final String DOMAIN = "qyapi.weixin.qq.com";
-    static final String REDIS_TOKEN_KEY = "qy_token";
+    static final String REDIS_TOKEN_KEY = "we::work::token";
 }

@@ -26,8 +26,10 @@ public class TestUtils {
         tests.add(test3);
         tests.add(test4);
         Optional<Test> any = tests.stream().sorted((o1, o2) -> {
-            if (o1.getTester() == o2.getTester()) {
-                return 0;
+            if (o1.getTester() > o2.getTester()) {
+                return 1;
+            } else if (o1.getTester() < o2.getTester()) {
+                return -1;
             }
             return 0;
         }).findAny();
@@ -37,7 +39,6 @@ public class TestUtils {
 
 @Data
 class Test {
-
     public Test(int tester) {
         this.tester = tester;
     }

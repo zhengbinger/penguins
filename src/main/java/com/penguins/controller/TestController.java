@@ -56,6 +56,7 @@ public class TestController {
         return testDto;
     }
 
+    @ApiOperation("获取当前登录用户")
     @GetMapping("gpo")
     public TestDto gpo() {
         String username = PrincipalContext.getCurrentPrincipal();

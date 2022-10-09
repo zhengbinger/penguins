@@ -12,6 +12,8 @@ public interface IMailSender {
 
     /**
      * 发送邮件
+     *
+     * @param mailObject MailObject
      */
     void send(MailObject mailObject);
 }

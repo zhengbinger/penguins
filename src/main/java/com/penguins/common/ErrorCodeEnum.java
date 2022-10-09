@@ -11,7 +11,7 @@ public enum ErrorCodeEnum {
     /**
      * 成功
      */
-    SUCCESS(0, ""),
+    SUCCESS(0, "success"),
     /**
      * 失败
      */
@@ -45,7 +45,7 @@ public enum ErrorCodeEnum {
     }
 
     public int getCode() {
-        return this.code;
+        return code;
     }
 
     public void setCode(int code) {
@@ -53,7 +53,7 @@ public enum ErrorCodeEnum {
     }
 
     public String getKey() {
-        return this.key;
+        return key;
     }
 
     public void setKey(String key) {

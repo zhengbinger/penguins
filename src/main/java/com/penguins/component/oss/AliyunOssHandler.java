@@ -31,15 +31,23 @@ import java.io.InputStream;
 @Slf4j
 @Component
 public class AliyunOssHandler {
-
     @Resource
     private PenguinsProperties properties;
 
+    /**
+     * 简单文件上传
+     *
+     * @param file         要上传的文件
+     * @param businessType 业务类型 - 对应目录定位
+     * @param dir          目录，用户在业务类型后存放独立目录定位
+     * @return String 文件上传后的路径
+     * @throws Exception Exception
+     */
     public String upload(MultipartFile file, BusinessType businessType, String dir) throws Exception {
-        String endpoint = this.properties.getAliyun().getEndpoint();
-        String accessKeyId = this.properties.getAliyun().getAccessKeyId();
-        String accessKeySecret = this.properties.getAliyun().getAccessKeySecret();
-        String bucketName = this.properties.getAliyun().getBucket();
+        String endpoint = properties.getAliyun().getEndpoint();
+        String accessKeyId = properties.getAliyun().getAccessKeyId();
+        String accessKeySecret = properties.getAliyun().getAccessKeySecret();
+        String bucketName = properties.getAliyun().getBucket();
         String objectName = businessType + (Strings.isBlank(dir) ? "" : File.separator + dir) + File.separator + file.getOriginalFilename();
 
         InputStream input = file.getInputStream();
