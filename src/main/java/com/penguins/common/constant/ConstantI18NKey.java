@@ -4,7 +4,6 @@ package com.penguins.common.constant;
  * @author zhengbing
  */
 public class ConstantI18NKey {
-
     public static final String SYSTEM_EX_MSG_PREFIX = "system.ex.msg.prefix";
     public static final String SYSTEM_SESSION_TIMEOUT = "system.session.timeout";
     public static final String AUTH_ACCOUNT_FORBIDDEN = "auth.account.forbidden";
