@@ -14,7 +14,7 @@ public enum UserType {
      */
     ADMIN,
     /**
-     *
+     * 官网
      */
     PORTAL;
 }
