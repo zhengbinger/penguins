@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/403").permitAll()
                 .antMatchers("/404").permitAll()
                 .antMatchers("/login").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().permitAll();
         http
                 // 配置表单登陆
                 .formLogin()
