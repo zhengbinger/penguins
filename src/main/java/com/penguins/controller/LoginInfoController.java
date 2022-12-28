@@ -60,7 +60,7 @@ public class LoginInfoController extends AbstractController {
      */
     @GetMapping("{id}")
     @ApiOperation("通过主键查询单条数据")
-    public Result<LoginInfo> selectOne(@PathVariable Serializable id) {
+    public Result<LoginInfo> selectOne(@PathVariable("id") Serializable id) {
         return success(loginInfoService.getById(id));
     }
 

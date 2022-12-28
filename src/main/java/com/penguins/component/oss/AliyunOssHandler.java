@@ -31,6 +31,9 @@ import java.io.InputStream;
 @Slf4j
 @Component
 public class AliyunOssHandler {
+
+    private static final String SCHEMA = "http://";
+    private static final String SCHEMA_S = "https://";
     @Resource
     private PenguinsProperties properties;
 
@@ -53,7 +56,11 @@ public class AliyunOssHandler {
         InputStream input = file.getInputStream();
         // 创建OSSClient实例。
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
-        String url = "https://" + bucketName + "." + endpoint + File.separator + objectName;
+        String url = SCHEMA_S.concat(bucketName)
+                .concat(".")
+                .concat(endpoint)
+                .concat(File.separator)
+                .concat(objectName);
         try {
             // 创建PutObjectRequest对象。
             PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, objectName, input);

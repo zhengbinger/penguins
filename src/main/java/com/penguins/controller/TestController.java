@@ -11,7 +11,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.UUID;
 
 /**
  * @author 郑冰
@@ -58,12 +57,8 @@ public class TestController {
 
     @ApiOperation("获取当前登录用户")
     @GetMapping("gpo")
-    public TestDto gpo() {
-        String username = PrincipalContext.getCurrentPrincipal();
-        TestDto testDto = new TestDto();
-        testDto.setId(UUID.randomUUID().toString());
-        testDto.setName(username);
-        return testDto;
+    public String gpo() {
+        return PrincipalContext.getCurrentPrincipal();
     }
 
     @Resource

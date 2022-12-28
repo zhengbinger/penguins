@@ -30,20 +30,10 @@ public class LoginInfoDto extends Page implements Serializable {
     @ApiModelProperty("启用ENABLED, 禁用DISABLED, 销户CANCELLED")
     private String status;
     /**
-     * PORTAL, ADMIN
+     * 账号
      */
-    @ApiModelProperty("PORTAL, ADMIN")
-    private String userType;
-    /**
-     * 登陆用户ID
-     */
-    @ApiModelProperty("登陆用户ID")
-    private Integer userId;
-    /**
-     * 绑定电话, 支持前后台用户使用相同的账号
-     */
-    @ApiModelProperty("绑定电话, 支持前后台用户使用相同的账号")
-    private String loginPhone;
+    @ApiModelProperty("账号")
+    private String account;
     /**
      * 密码
      */
