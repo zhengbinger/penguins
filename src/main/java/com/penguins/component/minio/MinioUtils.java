@@ -66,25 +66,9 @@ public class MinioUtils implements InitializingBean {
             stream =
                     minioClient.getObject(
                             GetObjectArgs.builder().bucket(properties.getBucket()).object(objectName).build());
-        } catch (ErrorResponseException e) {
-            throw new RuntimeException(e);
-        } catch (InsufficientDataException e) {
-            throw new RuntimeException(e);
-        } catch (InternalException e) {
-            throw new RuntimeException(e);
-        } catch (InvalidBucketNameException e) {
-            throw new RuntimeException(e);
-        } catch (InvalidKeyException e) {
-            throw new RuntimeException(e);
-        } catch (InvalidResponseException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        } catch (ServerException e) {
-            throw new RuntimeException(e);
-        } catch (XmlParserException e) {
+        } catch (ErrorResponseException | InsufficientDataException | InternalException | InvalidBucketNameException |
+                 InvalidKeyException | InvalidResponseException | IOException | NoSuchAlgorithmException |
+                 ServerException | XmlParserException e) {
             throw new RuntimeException(e);
         }
         return stream;

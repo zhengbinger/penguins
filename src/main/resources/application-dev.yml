@@ -12,3 +12,10 @@ knife4j:
   production: false
 
 debug: true
+
+minio:
+  host: http://101.33.240.92:9000
+  web-host: http://101.33.240.92:9000
+  bucket: wms
+  access-key: kFR1787noBboUq4E
+  access-secret: sbmdVVe6WoVzAVZG5S2Yx2S7F1BtnOGU
