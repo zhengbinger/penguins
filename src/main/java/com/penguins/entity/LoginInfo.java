@@ -20,9 +20,6 @@ public class LoginInfo extends BaseEntity<LoginInfo> {
     @ApiModelProperty("启用ENABLED, 禁用DISABLED, 销户CANCELLED")
     private String status;
 
-    @ApiModelProperty("用户ID")
-    private Integer userId;
-
     @ApiModelProperty("账号")
     private String account;
 

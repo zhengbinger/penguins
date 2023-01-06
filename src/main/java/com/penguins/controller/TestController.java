@@ -5,7 +5,6 @@ import com.penguins.component.mail.MailSenderFactory;
 import com.penguins.component.mail.MailType;
 import com.penguins.component.wework.WeWorkAccessTokenHandler;
 import com.penguins.dto.TestDto;
-import com.penguins.security.PrincipalContext;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -58,7 +57,8 @@ public class TestController {
     @ApiOperation("获取当前登录用户")
     @GetMapping("gpo")
     public String gpo() {
-        return PrincipalContext.getCurrentPrincipal();
+        return "";
+//        return PrincipalContext.getCurrentPrincipal();
     }
 
     @Resource
