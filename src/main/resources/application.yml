@@ -1,11 +1,10 @@
 server:
   port: 7777
-
 spring:
-  application:
-    name: penguins
   profiles:
     active: dev
+  application:
+    name: penguins
   mail:
     # 配置 SMTP 服务器地址
     host: smtp.qq.com
@@ -24,10 +23,6 @@ spring:
           socketFactoryClass: javax.net.ssl.SSLSocketFactory
         #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
         debug: true
-  redis:
-    host: localhost
-    port: 6379
-
 
 mybatis-plus:
   configuration:
@@ -44,6 +39,8 @@ mybatis-plus:
     #  mapper-locations: classpath*: mappers/**/*Mapper.xml
 
     ##  you may not control all the events that happen to you, but you can decide not to be reduce by them;
+  global-config:
+    banner: false
 
 penguins:
   aliyun:

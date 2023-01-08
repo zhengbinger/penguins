@@ -11,7 +11,7 @@ knife4j:
     enableDynamicParameter: true
   production: false
 
-debug: true
+#debug: true
 
 minio:
   host: http://101.33.240.92:9000

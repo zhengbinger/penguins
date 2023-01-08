@@ -4,7 +4,6 @@ import com.penguins.utils.ApplicationContextUtil;
 import io.minio.*;
 import io.minio.errors.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.InitializingBean;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,20 +11,21 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 /**
+ * minio 文件处理工具类
+ *
  * @author zhengbing
  * @email mydreambing@126.com
  * @since 2023/1/6 15:35
  **/
 @Slf4j
-public class MinioUtils implements InitializingBean {
+public class MinioUtils {
 
 
-    MinioProperties properties = null;
+    static MinioProperties properties = null;
 
-    MinioClient minioClient = null;
+    static MinioClient minioClient = null;
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
+    static {
         properties = ApplicationContextUtil.getBean(MinioProperties.class);
         minioClient =
                 MinioClient.builder()
@@ -35,7 +35,17 @@ public class MinioUtils implements InitializingBean {
     }
 
 
-    public String upload(String objectName, InputStream is) throws IOException, NoSuchAlgorithmException, InvalidKeyException {
+    /**
+     * 上传文件到(文件流) Minio
+     *
+     * @param objectName objectName
+     * @param is         InputStream
+     * @return String
+     * @throws IOException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeyException
+     */
+    public static String upload(String objectName, InputStream is) throws IOException, NoSuchAlgorithmException, InvalidKeyException {
 
         try {
             // Create a minioClient with the MinIO server playground, its access key and secret key.
@@ -60,7 +70,13 @@ public class MinioUtils implements InitializingBean {
         return objectName;
     }
 
-    public InputStream getObject(String objectName) {
+    /**
+     * 获取一个文件对象流
+     *
+     * @param objectName objectName
+     * @return InputStream
+     */
+    public static InputStream getObject(String objectName) {
         InputStream stream;
         try {
             stream =

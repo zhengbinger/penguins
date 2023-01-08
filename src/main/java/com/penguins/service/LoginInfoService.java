@@ -18,7 +18,7 @@ public interface LoginInfoService extends IService<LoginInfo> {
      * @param loginInfo
      * @return
      */
-    boolean searchLogin(LoginInfoForm loginInfo);
+    LoginInfo login(LoginInfoForm loginInfo);
 
 }
 

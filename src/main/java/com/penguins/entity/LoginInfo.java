@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ApiModel(" LoginInfo - 登录信息 ")
-public class LoginInfo extends BaseEntity<LoginInfo> {
+public class LoginInfo extends BaseEntity {
 
     @ApiModelProperty("启用ENABLED, 禁用DISABLED, 销户CANCELLED")
     private String status;

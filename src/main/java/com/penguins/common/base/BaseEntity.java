@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @since 2022/10/9 16:39
  **/
 @Data
-public class BaseEntity<T> implements Serializable {
+public class BaseEntity implements Serializable {
 
     @ApiModelProperty("主键")
     private Integer id;
