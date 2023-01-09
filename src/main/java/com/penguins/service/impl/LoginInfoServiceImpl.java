@@ -2,6 +2,8 @@ package com.penguins.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.penguins.common.constant.ConstantI18NKey;
+import com.penguins.component.local.LocalUtil;
 import com.penguins.entity.LoginInfo;
 import com.penguins.entity.enums.DataStatusEnum;
 import com.penguins.entity.form.LoginInfoForm;
@@ -30,7 +32,7 @@ public class LoginInfoServiceImpl extends ServiceImpl<LoginInfoRepository, Login
         wrapper.eq("account", loginInfo.getAccount());
         LoginInfo login = loginInfoRepository.selectOne(wrapper);
         if (Objects.isNull(login)) {
-            throw new RuntimeException("用户不存在");
+            throw new RuntimeException(LocalUtil.get(ConstantI18NKey.AUTH_ACCOUNT_IS_NULL));
         }
         if (!login.getPassword().equals(loginInfo.getPassword())) {
             throw new RuntimeException("密码错误");

@@ -27,7 +27,12 @@ public enum ErrorCodeEnum {
     /**
      * 用户被禁用
      */
-    AUTH_ACCOUNT_DISABLED(4, ConstantI18NKey.AUTH_ACCOUNT_DISABLED);
+    AUTH_ACCOUNT_DISABLED(4, ConstantI18NKey.AUTH_ACCOUNT_DISABLED),
+
+    /**
+     * 用户不存在
+     */
+    AUTH_ACCOUNT_IS_NULL(5, ConstantI18NKey.AUTH_ACCOUNT_IS_NULL);
 
     /**
      * 状态码

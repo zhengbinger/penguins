@@ -74,6 +74,10 @@ public class Result<T> {
         return new Result<>(ErrorCodeEnum.FAILURE.getCode(), CommonUtil.getText(ErrorCodeEnum.FAILURE.getKey()));
     }
 
+    public static <T> Result<T> error(Throwable e) {
+        return new Result<>(ErrorCodeEnum.FAILURE.getCode(), CommonUtil.getText(ErrorCodeEnum.FAILURE.getKey()));
+    }
+
     /**
      * 构建错误结果模型
      *
