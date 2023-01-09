@@ -11,11 +11,11 @@ public enum ErrorCodeEnum {
     /**
      * 成功
      */
-    SUCCESS(0, "success"),
+    SUCCESS(200, "success"),
     /**
      * 失败
      */
-    FAILURE(1, ConstantI18NKey.SYSTEM_EX_MSG_PREFIX),
+    FAILURE(500, ConstantI18NKey.SYSTEM_EX_MSG_PREFIX),
     /**
      * 未登录/登录超时
      */
@@ -23,16 +23,16 @@ public enum ErrorCodeEnum {
     /**
      * 无权访问
      */
-    AUTH_ACCOUNT_FORBIDDEN(3, ConstantI18NKey.AUTH_ACCOUNT_FORBIDDEN),
+    AUTH_ACCOUNT_FORBIDDEN(401, ConstantI18NKey.AUTH_ACCOUNT_FORBIDDEN),
     /**
      * 用户被禁用
      */
-    AUTH_ACCOUNT_DISABLED(4, ConstantI18NKey.AUTH_ACCOUNT_DISABLED),
+    AUTH_ACCOUNT_DISABLED(401, ConstantI18NKey.AUTH_ACCOUNT_DISABLED),
 
     /**
      * 用户不存在
      */
-    AUTH_ACCOUNT_IS_NULL(5, ConstantI18NKey.AUTH_ACCOUNT_IS_NULL);
+    AUTH_ACCOUNT_IS_NULL(401, ConstantI18NKey.AUTH_ACCOUNT_IS_NULL);
 
     /**
      * 状态码

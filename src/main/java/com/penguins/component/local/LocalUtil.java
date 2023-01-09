@@ -5,6 +5,8 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
 /**
+ * 国际化工具类
+ *
  * @author zhengbing
  * @email mydreambing@126.com
  * @since 2023/1/9 08:57

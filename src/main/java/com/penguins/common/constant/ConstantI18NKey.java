@@ -1,6 +1,8 @@
 package com.penguins.common.constant;
 
 /**
+ * 国际化常量
+ *
  * @author zhengbing
  */
 public class ConstantI18NKey {

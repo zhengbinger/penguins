@@ -30,3 +30,14 @@ The following guides illustrate how to use some features concretely:
 * [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/)
 * [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/)
 
+### Function Feature
+
+分布式文件存储
+> minio   
+> aliyun oss
+
+后台国际化
+> messages
+
+全局异常返回处理
+> RestControllerAdvice
