@@ -53,7 +53,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = NullPointerException.class)
     public Result<Object> handle(NullPointerException e) {
         e.printStackTrace();
-        return Result.error("【 PENGUINS 系统内部错误！】");
+        return Result.error("【 PENGUINS 系统内部错误 】");
     }
 
     /**
@@ -192,7 +192,7 @@ public class GlobalExceptionHandler {
                         + element.getMethodName()
                         + "，所在行号："
                         + element.getLineNumber());
-        return Result.error("【 PENGUINS 系统内部错误！】" + e.getMessage());
+        return Result.error("【 PENGUINS 系统内部错误 】" + e.getMessage());
     }
 }
 

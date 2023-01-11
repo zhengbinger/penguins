@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 /**
  * SpringMvc 通用配置
@@ -24,14 +25,16 @@ public class WebConfiguration implements WebMvcConfigurer {
                 addResourceLocations("classpath:/META-INF/resources/webjars/");
         registry.addResourceHandler("/static/**").
                 addResourceLocations("classpath:/static/");
-//        registry.addResourceHandler("/**").
-//                addResourceLocations("classpath:/**");
 
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new RequestInterceptor()).addPathPatterns("/**");
+        LocaleChangeInterceptor localeInterceptor = new LocaleChangeInterceptor();
+        //拦截lang参数
+//        localeInterceptor.setParamName("lang");
+        registry.addInterceptor(localeInterceptor);
         WebMvcConfigurer.super.addInterceptors(registry);
     }
 }
