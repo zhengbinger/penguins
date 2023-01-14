@@ -9,6 +9,7 @@ import com.penguins.entity.enums.DataStatusEnum;
 import com.penguins.entity.form.LoginInfoForm;
 import com.penguins.repository.LoginInfoRepository;
 import com.penguins.service.LoginInfoService;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +35,7 @@ public class LoginInfoServiceImpl extends ServiceImpl<LoginInfoRepository, Login
         if (Objects.isNull(login)) {
             throw new RuntimeException(LocalUtil.get(ConstantI18NKey.AUTH_ACCOUNT_IS_NULL));
         }
-        if (!login.getPassword().equals(loginInfo.getPassword())) {
+        if (!DigestUtils.md5Hex(loginInfo.getPassword()).equals(login.getPassword())) {
             throw new RuntimeException("密码错误");
         }
         if (DataStatusEnum.DISABLED.getName().equals(login.getStatus())) {

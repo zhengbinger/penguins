@@ -20,7 +20,6 @@ public class AsyncController {
     @GetMapping("test")
     @ApiOperation("异步执行任务")
     public void async() {
-//        adminRoleService.task();
         System.out.println("main execute");
     }
 }

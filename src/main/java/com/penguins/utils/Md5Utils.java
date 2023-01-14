@@ -10,7 +10,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 public class Md5Utils {
 
     public static void main(String[] args) {
-        System.out.println(DigestUtils.md5Hex("chian"));
+        System.out.println(DigestUtils.md5Hex("123456"));
     }
 }
 

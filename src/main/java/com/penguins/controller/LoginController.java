@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("auth")
 public class LoginController {
-
     @Autowired
     private LoginInfoService loginInfoService;
 
