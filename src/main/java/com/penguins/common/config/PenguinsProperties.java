@@ -18,49 +18,13 @@ import org.springframework.context.annotation.Configuration;
 public class PenguinsProperties {
 
     /**
-     * 字节跳动小程序配置
-     */
-    private MiniProgram mini = new MiniProgram();
-
-    /**
      * 阿里云配置
      */
     private Aliyun aliyun = new Aliyun();
-
-    /**
-     * 融云配置
-     */
-    private RongCloud rongCloud = new RongCloud();
-
     /**
      * 邮件配置
      */
     private PenguinsMail mail = new PenguinsMail();
-
-    /**
-     * 字节跳动小程序配置
-     */
-    @Data
-    @Configuration
-    @ConfigurationProperties("penguins.bytecode.mini")
-    public static class MiniProgram {
-        /**
-         * host
-         */
-        private String host;
-        /**
-         * AppId
-         */
-        private String appid;
-        /**
-         * AppSecret
-         */
-        private String secret;
-        /**
-         * jscode2session api路径
-         */
-        private String jscode2session;
-    }
 
     /**
      * 阿里云配置
@@ -74,23 +38,6 @@ public class PenguinsProperties {
         private String accessKeyId;
         private String accessKeySecret;
         private String bucket;
-    }
-
-    /**
-     * 融云自定义配置
-     */
-    @Data
-    @Configuration
-    @ConfigurationProperties("penguins.rong")
-    public static class RongCloud {
-        /**
-         * AppKey
-         */
-        private String appKey;
-        /**
-         * AppSecret
-         */
-        private String appSecret;
     }
 
     @Data
