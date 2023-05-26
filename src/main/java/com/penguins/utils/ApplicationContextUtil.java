@@ -3,17 +3,21 @@ package com.penguins.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 import java.util.Map;
 
 /**
+ * Spring 容器上下文工具类
+ *
  * @author zhengbing
  * @email mydreambing@126.com
  * @since 2023/1/6 15:36
  **/
 @Slf4j
+@ConditionalOnBean(ApplicationContext.class)
 public class ApplicationContextUtil implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;

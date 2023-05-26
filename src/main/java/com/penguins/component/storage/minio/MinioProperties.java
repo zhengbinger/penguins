@@ -1,4 +1,4 @@
-package com.penguins.component.minio;
+package com.penguins.component.storage.minio;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

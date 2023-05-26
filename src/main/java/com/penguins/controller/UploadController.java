@@ -1,7 +1,7 @@
 package com.penguins.controller;
 
 import com.penguins.common.Result;
-import com.penguins.component.oss.AliyunOssHandler;
+import com.penguins.component.storage.oss.AliyunOssHandler;
 import com.penguins.entity.enums.BusinessType;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

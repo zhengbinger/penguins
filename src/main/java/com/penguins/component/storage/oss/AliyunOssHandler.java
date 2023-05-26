@@ -1,4 +1,4 @@
-package com.penguins.component.oss;
+package com.penguins.component.storage.oss;
 
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSS;

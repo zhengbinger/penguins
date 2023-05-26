@@ -1,4 +1,4 @@
-package com.penguins.component.minio;
+package com.penguins.component.storage.minio;
 
 import com.penguins.utils.ApplicationContextUtil;
 import io.minio.*;
