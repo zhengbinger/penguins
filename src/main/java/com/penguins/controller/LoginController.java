@@ -9,8 +9,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -31,8 +31,9 @@ public class LoginController {
     private StringRedisTemplate stringRedisTemplate;
 
     @ApiOperation("登录")
+    @ResponseBody
     @PostMapping("login")
-    public Result<LoginInfo> login(@RequestBody LoginInfoForm loginInfo) {
+    public Result<LoginInfo> login(LoginInfoForm loginInfo) {
         return Result.success(loginInfoService.login(loginInfo));
     }
 }

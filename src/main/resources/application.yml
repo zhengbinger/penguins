@@ -7,6 +7,12 @@ spring:
     active: dev
   application:
     name: penguins
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
   mail:
     # 配置 SMTP 服务器地址
     host: smtp.qq.com
@@ -26,6 +32,7 @@ spring:
   messages:
     encoding: utf-8
     basename: static/i18n/messages
+
 
 mybatis-plus:
   configuration:
