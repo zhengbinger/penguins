@@ -2,18 +2,12 @@ package com.penguins.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.penguins.common.constant.ConstantI18NKey;
-import com.penguins.component.local.LocalUtil;
 import com.penguins.entity.LoginInfo;
-import com.penguins.entity.enums.DataStatusEnum;
 import com.penguins.entity.form.LoginInfoForm;
 import com.penguins.repository.LoginInfoRepository;
 import com.penguins.service.LoginInfoService;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Objects;
 
 /**
  * 登录信息(LoginInfo)表服务实现类
@@ -32,18 +26,6 @@ public class LoginInfoServiceImpl extends ServiceImpl<LoginInfoRepository, Login
         QueryWrapper<LoginInfo> wrapper = new QueryWrapper<>();
         wrapper.eq("account", loginInfo.getAccount());
         LoginInfo login = loginInfoRepository.selectOne(wrapper);
-        if (Objects.isNull(login)) {
-            throw new RuntimeException(LocalUtil.get(ConstantI18NKey.AUTH_ACCOUNT_IS_NULL));
-        }
-        if (!DigestUtils.md5Hex(loginInfo.getPassword()).equals(login.getPassword())) {
-            throw new RuntimeException("密码错误");
-        }
-        if (DataStatusEnum.DISABLED.getName().equals(login.getStatus())) {
-            throw new RuntimeException("登录失败，用户已禁用");
-        }
-        if (DataStatusEnum.CANCELLED.getName().equals(login.getStatus())) {
-            throw new RuntimeException("登录失败，用户已注销");
-        }
         return login;
     }
 }

@@ -52,12 +52,12 @@ mybatis-plus:
   global-config:
     banner: false
 
-penguins:
-  aliyun:
-    endpoint: oss-cn-shenzhen.aliyuncs.com
-    bucket: zhengbing
-    access-key-id: LTAI5tHjCVYJKc8a2YHQFM9A
-    access-key-secret: KQ4crDI7490kwAbeqf7DJud47Hur7f
+#penguins:
+#  aliyun:
+#    endpoint: oss-cn-shenzhen.aliyuncs.com
+#    bucket: zhengbing
+#    access-key-id: *
+#    access-key-secret: *
 
 qywx:
   qy-id: wwc9c23a98dd7baa97
