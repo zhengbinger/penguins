@@ -63,15 +63,5 @@
 <script th:src="@{/static/js/popper.min.js}"></script>
 <script th:src="@{/static/plugins/bootstrap/js/bootstrap.min.js}"></script><!-- Custom JS -->
 <script th:src="@{/static/js/script.js}"></script>
-
-<script>
-    $("#login").click(function () {
-        var data = $("#loginForm").serialize();
-        let post = $.post("@{/auth/login}", data, val)
-        {
-
-        }
-    });
-</script>
 </body>
 </html>

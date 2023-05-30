@@ -3,6 +3,7 @@ package com.penguins.common;
 import com.penguins.utils.CommonUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -11,6 +12,7 @@ import lombok.Data;
  * @author zhengbing
  */
 @Data
+@Builder
 @ApiModel(value = "Result", description = "返回结果模型")
 public class Result<T> {
 
@@ -53,6 +55,7 @@ public class Result<T> {
      */
     private Result(T data) {
         this.data = data;
+        msg = ErrorCodeEnum.SUCCESS.getKey();
     }
 
     /**
